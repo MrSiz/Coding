@@ -8,7 +8,7 @@ class Observer
 public:
 	Observer() = default;
 	Observer(const Observer& ) = delete;
-	~Observer() = default;
+	virtual ~Observer(){}
 	Observer& operator=(const Observer& ) = delete;
 public:
 	virtual void update(WheatherData* ) = 0;
@@ -110,4 +110,9 @@ int main()
 	Person* person = new Person(wheather);
 	
 	wheather->modify(49.f, 22.f, 33.f);
+	
+	delete person;
+	delete wheather;
+	
+	return 0;
 }

@@ -4,6 +4,8 @@
 class Observer
 {
 public:
+	virtual ~Observer(){}
+public:
 	virtual void update(float temp, float huidity, float pressure) = 0;
 };
 
@@ -17,6 +19,8 @@ public:
 
 class DisplayElement
 {
+public:
+	virtual ~DisplayElement(){}
 public:
 	virtual void display() = 0; 
 };
@@ -103,5 +107,8 @@ int main()
 	weatherData->setMeasurements(80, 65, 30.4f);
 	weatherData->setMeasurements(82, 70, 29.2f);
 	weatherData->setMeasurements(78, 90, 29.2f);
+	
+	delete currentDisplay;
+	delete weatherData;
 	return 0;
 }
